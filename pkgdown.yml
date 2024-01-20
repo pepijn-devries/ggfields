@@ -1,0 +1,7 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  angle_correction: angle_correction.html
+last_built: 2024-01-20T13:26Z
+
