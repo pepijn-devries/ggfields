@@ -13,6 +13,9 @@
     <loc>/articles/index.html</loc>
   </url>
   <url>
+    <loc>/articles/length_aes.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
@@ -34,9 +37,21 @@
     <loc>/reference/geom_fields.html</loc>
   </url>
   <url>
+    <loc>/reference/ggfields-package.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
+    <loc>/reference/pythagoras.html</loc>
+  </url>
+  <url>
     <loc>/reference/scale_length_continuous.html</loc>
+  </url>
+  <url>
+    <loc>/reference/seawatervelocity.html</loc>
+  </url>
+  <url>
+    <loc>/reference/stat_fields.html</loc>
   </url>
 </urlset>
