@@ -1,4 +1,4 @@
-ggfields v0.0.1 (Release date: 2024-01-21)
+ggfields v0.0.2 (Release date: 2024-01-29)
 -------------
 
   * Initial release

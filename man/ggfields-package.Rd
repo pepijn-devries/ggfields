@@ -4,7 +4,7 @@
 \name{ggfields-package}
 \alias{ggfields}
 \alias{ggfields-package}
-\title{ggfields: Add vector fields layers to ggplots}
+\title{ggfields: Add Vector Field Layers to Ggplots}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 

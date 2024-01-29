@@ -1,7 +1,7 @@
 Package: ggfields
-Title: Add vector fields layers to ggplots
-Version: 0.0.1
-Date: 2024-01-21
+Title: Add Vector Field Layers to Ggplots
+Version: 0.0.2
+Date: 2024-01-29
 Authors@R: c(person("Pepijn", "de Vries", role = c("aut", "cre"),
     email = "pepijn.devries@outlook.com",
     comment = c(ORCID = "0000-0002-7961-6646")))
