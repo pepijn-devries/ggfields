@@ -38,7 +38,7 @@ annotation_fields() does not accept a stat argument."><meta property="og:image" 
       <a href="../articles/angle_correction.html">Angle Correction</a>
     </li>
     <li>
-      <a href="../articles/length_aes.html">Length Aesthetics</a>
+      <a href="../articles/radius_aes.html">Radius Aesthetics</a>
     </li>
   </ul></li>
 <li>
@@ -78,9 +78,9 @@ makes the data central, and uses this layer to support it. Consequently,
 <span>  position <span class="op">=</span> <span class="st">"identity"</span>,</span>
 <span>  na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  show.legend <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  max_length <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
+<span>  max_radius <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
 <span>  .angle_correction <span class="op">=</span> <span class="va">angle_correction</span>,</span>
-<span>  arrow <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/arrow.html" class="external-link">arrow</a></span><span class="op">(</span>length <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="st">"cm"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  arrow <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/arrow.html" class="external-link">arrow</a></span><span class="op">(</span>length <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="st">"cm"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  inherit.aes <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -96,7 +96,12 @@ mapping.</p></dd>
 
 
 <dt>data</dt>
-<dd><p>TODO</p></dd>
+<dd><p>Can be one of four things:</p><ul><li><p><code>NULL</code>: in that case data from the parent <a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a> call is
+inherited.</p></li>
+<li><p><code>data.frame</code>: you need to assign the <code>x</code> and <code>y</code> aesthetics.</p></li>
+<li><p><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf object</a>: it should contain a <code>geometry</code> column with only <code>POINT</code> geometries.</p></li>
+<li><p><a href="https://r-spatial.github.io/stars/reference/st_as_stars.html" class="external-link">stars object</a>: it will be converted automatically to an <code>sf</code> object.</p></li>
+</ul></dd>
 
 
 <dt>position</dt>
@@ -119,12 +124,18 @@ It can also be a named logical vector to finely select the aesthetics to
 display.</p></dd>
 
 
-<dt>max_length</dt>
-<dd><p>TODO</p></dd>
+<dt>max_radius</dt>
+<dd><p>Maximum radius to which the <code>radius</code> aesthetic is scaled in the plot.
+You can use absolute ("e.g., "cm", "in", "pt") and relative ("npc") <a href="https://ggplot2.tidyverse.org/reference/reexports.html" class="external-link">units</a> to set
+its value. Default is <code>0.5 cm</code>.</p></dd>
 
 
 <dt>.angle_correction</dt>
-<dd><p>TODO</p></dd>
+<dd><p>Function to correct the angle in the aesthetics for the projection and/or
+aspect ratio used in the plot. When set to <code>NULL</code> the angle is not corrected and is treated as the angle
+in the final plot. A custom function can be provided which should accept at least three arguments
+(<code>data</code>, <code>panel_params</code> and <code>coord</code>). See <code><a href="angle_correction.html">angle_correction()</a></code> and <code><a href="../articles/angle_correction.html">vignette("angle_correction")</a></code> for
+more details.</p></dd>
 
 
 <dt>arrow</dt>
@@ -163,7 +174,7 @@ to the paired geom/stat.</p></dd>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"seawatervelocity"</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">sw_sub</span> <span class="op">&lt;-</span> <span class="va">seawatervelocity</span><span class="op">[</span>,<span class="fl">20</span><span class="op">:</span><span class="fl">25</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></span>
+<span class="r-in"><span>  <span class="va">sw_sub</span> <span class="op">&lt;-</span> <span class="va">seawatervelocity</span><span class="op">[</span>,<span class="fl">8</span><span class="op">:</span><span class="fl">13</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></span>
 <span class="r-in"><span>  </span></span>
 <span class="r-in"><span>  <span class="co">## Note that the `seawatervelocity` spans a much larger area,</span></span></span>
 <span class="r-in"><span>  <span class="co">## but the plot only focuses on `sw_sub`</span></span></span>
@@ -171,14 +182,12 @@ to the paired geom/stat.</p></dd>
 <span class="r-in"><span>    <span class="fu"><a href="https://r-spatial.github.io/stars/reference/geom_stars.html" class="external-link">geom_stars</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">sw_sub</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>    <span class="fu">annotation_fields</span><span class="op">(</span>data <span class="op">=</span> <span class="va">seawatervelocity</span>,</span></span>
 <span class="r-in"><span>                      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">atan2</a></span><span class="op">(</span><span class="va">vo</span>, <span class="va">uo</span><span class="op">)</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                          length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="pythagoras.html">pythagoras</a></span><span class="op">(</span><span class="va">uo</span>, <span class="va">vo</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>length <span class="op">=</span> <span class="st">"v [m/s]"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                          radius <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="pythagoras.html">pythagoras</a></span><span class="op">(</span><span class="va">uo</span>, <span class="va">vo</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>radius <span class="op">=</span> <span class="st">"v [m/s]"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required namespace: stars</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: abind</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: sf</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Linking to GEOS 3.10.2, GDAL 3.4.1, PROJ 8.2.1; sf_use_s2() is TRUE</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Angle correction between 0.00 and 0.00 radials</span>
 <span class="r-plt img"><img src="annotation_fields-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>

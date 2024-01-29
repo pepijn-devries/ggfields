@@ -60,7 +60,7 @@
       <a href="../articles/angle_correction.html">Angle Correction</a>
     </li>
     <li>
-      <a href="../articles/length_aes.html">Length Aesthetics</a>
+      <a href="../articles/radius_aes.html">Radius Aesthetics</a>
     </li>
   </ul>
 </li>
@@ -98,11 +98,23 @@
 
     
     
+<div class="section level2">
+<h2 id="a-matter-of-perspective">A matter of perspective<a class="anchor" aria-label="anchor" href="#a-matter-of-perspective"></a>
+</h2>
+<p>When you have a data set in which vector angles are specified, it is
+important to realise that that angle should have some frame of
+reference. For instance if you specify an angle in an xy-plane (e.g. 30
+degrees from North) and then plot it in a plane with an aspect ratio of
+1:2 (i.e., values on the y-axis are twice as tall as those on the
+x-axis), the angle changes. In the plot the original angle of 30 degrees
+North would appear as 15 degrees due to the aspect ratio.</p>
+<p>The same is true is you specify geographical directions in spherical
+coordinates, angles will change if you plot it in a different projection
+where the spherical coordinates are squashed to the flat surface of a
+plot.</p>
+<p>This can be illustrated by setting up a spatial grid with vectors
+that all point Northwards:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pepijn-devries.github.io/ggfields/" class="external-link">ggfields</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html" class="external-link">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_light</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">north_arrows</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html" class="external-link">expand.grid</a></span><span class="op">(</span></span>
 <span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">15</span>, length.out <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,</span>
@@ -112,28 +124,112 @@
 <span>  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_make_grid.html" class="external-link">st_make_grid</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">stars</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/stars/reference/st_as_stars.html" class="external-link">st_as_stars</a></span><span class="op">(</span>nx <span class="op">=</span> <span class="fl">10</span>, ny <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">0</span><span class="op">*</span><span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">pi</span><span class="op">/</span><span class="fl">360</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_fields.html">geom_fields</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">north_arrows</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="va">angle</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Angle correction between 0.00 and 0.00 radials</span></span></code></pre></div>
+<p>Note that if we plot this in WGS84 lon lat projection (i.e.,
+spherical coordinates), all arrows point upwards:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pepijn-devries.github.io/ggfields/" class="external-link">ggfields</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html" class="external-link">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_light</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_fields.html">geom_fields</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">north_arrows</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="va">angle</span><span class="op">)</span>, radius <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p><img src="angle_correction_files/figure-html/angle_lonlat-1.svg" width="700"></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_fields.html">geom_fields</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">north_arrows</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="va">angle</span>, col <span class="op">=</span> <span class="st">"no correction"</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">1</span>,</span>
+<p>Now if we plot the same data in UTM (zone 31 N in meters, EPSG code
+32631), and do so without correction (red) and with correction (green),
+you will see what happens:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">no_correction</span> <span class="op">&lt;-</span></span>
+<span>    <span class="fu"><a href="../reference/geom_fields.html">geom_fields</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">north_arrows</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="va">angle</span>, col <span class="op">=</span> <span class="st">"no correction"</span><span class="op">)</span>, radius <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>              .angle_correction <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>              max_length <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="st">"cm"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_fields.html">geom_fields</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">north_arrows</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="va">angle</span>, col <span class="op">=</span> <span class="st">"corrected"</span><span class="op">)</span>, length <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>              max_length <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="st">"cm"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>              max_radius <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="st">"cm"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">+</span></span>
+<span>  <span class="va">no_correction</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_fields.html">geom_fields</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">north_arrows</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="va">angle</span>, col <span class="op">=</span> <span class="st">"corrected"</span><span class="op">)</span>, radius <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>              max_radius <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="st">"cm"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_colour_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`no correction` <span class="op">=</span> <span class="st">"red"</span>, corrected <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">32631</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Angle correction between -0.19 and 0.12 radials</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">32631</span><span class="op">)</span></span></code></pre></div>
 <p><img src="angle_correction_files/figure-html/angle_diff-1.svg" width="700"></p>
+<p>Remember that in reality (and in this plot) the parallels of latitude
+converge at the North Pole. If we don’t correct the angles of zero
+degrees (red), they will still point upwards, but in the projection of
+the plot that doesn’t make sense (they don’t point towards the North
+Pole). You can see that after correction, the arrows do point to the
+North Pole and follow the curved parallels of latitude.</p>
+</div>
+<div class="section level2">
+<h2 id="correction-mechanism-of-ggfield">Correction mechanism of <code>ggfield</code><a class="anchor" aria-label="anchor" href="#correction-mechanism-of-ggfield"></a>
+</h2>
+<div class="section level3">
+<h3 id="default-correction">Default correction<a class="anchor" aria-label="anchor" href="#default-correction"></a>
+</h3>
+<p><code>ggfield</code> uses the <code><a href="../reference/angle_correction.html">angle_correction()</a></code>
+function to correct angles. If your data has a coordinate reference
+system (see <code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code>) specified, it will be assumed
+that angles are specified in relation to the Earth’s spherical lon-lat
+coordinates. In other cases, it is assumed that the angle is specified
+in the xy-plane given by the coordinates specified with
+<code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">ggplot2::aes()</a></code>. In the latter case, angles are only
+corrected for the aspect ratio of the plot.</p>
+<p>The <code><a href="../reference/angle_correction.html">angle_correction()</a></code> function is passed to the
+<code>.angle_correction</code> argument of the
+<code><a href="../reference/geom_fields.html">geom_fields()</a></code> function. This correction function is called
+when the plot is rendered. When this argument is set to
+<code>NULL</code> no correction is applied (see red arrows in plot
+above).</p>
+</div>
+<div class="section level3">
+<h3 id="custom-correction">Custom correction<a class="anchor" aria-label="anchor" href="#custom-correction"></a>
+</h3>
+<p>It is also possible to provide a custom correction function. You just
+need to define a function that accepts the arguments <code>data</code>,
+<code>panel_params</code>, and <code>coord</code>. The function should
+return a modified version of the <code>data.frame</code>
+<code>data</code> that contains a column named
+<code>angle_correction</code>. <code>angle_correction</code> should
+contain <code>numeric</code> radials that should be added to the
+original <code>angle</code>. Let’s say we want a custom correction
+function that rotates all angles by 90 degrees (pi/2 in radials), it
+would look like this:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">custom_correct</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">panel_params</span>, <span class="va">coord</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">data</span> <span class="op">|&gt;</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>angle_correction <span class="op">=</span> <span class="va">pi</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">no_correction</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">geom_params</span><span class="op">$</span><span class="va">max_radius</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="st">"cm"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">+</span></span>
+<span>  <span class="va">no_correction</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_fields.html">geom_fields</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">north_arrows</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="va">angle</span>, col <span class="op">=</span> <span class="st">"custom correction"</span><span class="op">)</span>,</span>
+<span>              radius <span class="op">=</span> <span class="fl">1</span>, .angle_correction <span class="op">=</span> <span class="va">custom_correct</span>,</span>
+<span>              max_radius <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="st">"cm"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_colour_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`no correction` <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>                                 `custom correction` <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="angle_correction_files/figure-html/custom_corr-1.svg" width="700"></p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
+</h2>
+<p>The take home message is that angles in your data have been defined
+from a certain perspective, about which <code>ggfield</code> knows
+nothing. Although the default <code><a href="../reference/angle_correction.html">angle_correction()</a></code> function
+does its best to correct angles in your plot, it is up to you to make
+sure that these corrections actually make sense.</p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

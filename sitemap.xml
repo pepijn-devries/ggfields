@@ -13,7 +13,7 @@
     <loc>/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/length_aes.html</loc>
+    <loc>/articles/radius_aes.html</loc>
   </url>
   <url>
     <loc>/authors.html</loc>
@@ -46,7 +46,7 @@
     <loc>/reference/pythagoras.html</loc>
   </url>
   <url>
-    <loc>/reference/scale_length_continuous.html</loc>
+    <loc>/reference/scale.html</loc>
   </url>
   <url>
     <loc>/reference/seawatervelocity.html</loc>

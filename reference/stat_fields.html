@@ -35,7 +35,7 @@
       <a href="../articles/angle_correction.html">Angle Correction</a>
     </li>
     <li>
-      <a href="../articles/length_aes.html">Length Aesthetics</a>
+      <a href="../articles/radius_aes.html">Radius Aesthetics</a>
     </li>
   </ul></li>
 <li>
@@ -94,11 +94,16 @@ mapping.</p></dd>
 
 
 <dt>data</dt>
-<dd><p>TODO</p></dd>
+<dd><p>Can be one of four things:</p><ul><li><p><code>NULL</code>: in that case data from the parent <a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a> call is
+inherited.</p></li>
+<li><p><code>data.frame</code>: you need to assign the <code>x</code> and <code>y</code> aesthetics.</p></li>
+<li><p><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf object</a>: it should contain a <code>geometry</code> column with only <code>POINT</code> geometries.</p></li>
+<li><p><a href="https://r-spatial.github.io/stars/reference/st_as_stars.html" class="external-link">stars object</a>: it will be converted automatically to an <code>sf</code> object.</p></li>
+</ul></dd>
 
 
 <dt>geom</dt>
-<dd><p>TODO</p></dd>
+<dd><p>The layer type for which the data is prepared. In this case <code>"fields"</code>.</p></dd>
 
 
 <dt>position</dt>
@@ -139,7 +144,7 @@ to the paired geom/stat.</p></dd>
     <h2>Value</h2>
     
 
-<p>TODO</p>
+<p>Returns a <a href="https://ggplot2.tidyverse.org/reference/layer.html" class="external-link">layer</a> that can be further modified by <code><a href="geom_fields.html">geom_fields()</a></code>.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -148,8 +153,10 @@ to the paired geom/stat.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># TODO</span></span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">stat_fields</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geom_fields: na.rm = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> stat_fields: na.rm = FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> position_identity </span>
 </code></pre></div>
     </div>
   </div>
