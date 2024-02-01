@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/articles/angle_correction.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/articles/angle_correction.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/radius_aes.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/articles/radius_aes.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/index.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/angle_correction.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/reference/angle_correction.html</loc>
   </url>
   <url>
-    <loc>/reference/annotation_fields.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/reference/annotation_fields.html</loc>
   </url>
   <url>
-    <loc>/reference/draw_key_fields.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/reference/draw_key_fields.html</loc>
   </url>
   <url>
-    <loc>/reference/geom_fields.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/reference/geom_fields.html</loc>
   </url>
   <url>
-    <loc>/reference/ggfields-package.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/reference/ggfields-package.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/pythagoras.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/reference/pythagoras.html</loc>
   </url>
   <url>
-    <loc>/reference/scale.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/reference/scale.html</loc>
   </url>
   <url>
-    <loc>/reference/seawatervelocity.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/reference/seawatervelocity.html</loc>
   </url>
   <url>
-    <loc>/reference/stat_fields.html</loc>
+    <loc>https://pepijn-devries.github.io/ggfields/reference/stat_fields.html</loc>
   </url>
 </urlset>
