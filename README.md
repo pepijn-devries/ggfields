@@ -3,7 +3,7 @@
 
 ## Overview
 
-<img src="man/figures/logo.png" align="right" alt = "logo" />
+<img src="man/figures/logo.png" align="right" alt = "logo" class = "pkgdown-hide" />
 
 Add vector field layers to your `ggplot2::ggplot()`. Although it has
 similarities with `ggplot2::geom_spoke()`, `ggfields` offers some
@@ -24,10 +24,10 @@ distinct features:
 install.packages("ggfields")
 ```
 
-> Get development version on github
+> Get development version from r-universe
 
 ``` r
-devtools::install_github('pepijn-devries/ggfields')
+install.packages("ggfields", repos = c("https://pepijn-devries.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
 ## Adding vector fields to a map
