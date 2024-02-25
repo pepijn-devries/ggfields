@@ -1,3 +1,15 @@
+### fourth submission
+
+ >  Running examples in ‘ggfields-Ex.R’ failed
+
+Fixed by adding missing argument to `angle_correction`
+
+ > checking package dependencies ... ERROR
+Package required and available but unsuitable version: 'grid'
+
+Fixed by lowering the required version of `grid` to 4.1.0 (same
+as required R version)
+
 ### third submission
 
  > If there are references describing the methods in your package, please

@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Add vector field layers to ggplots. Ideal for visualising wind speeds, water currents, electric/magnetic fields, etc. Accepts data.frames simple features (sf) and spatiotemporal arrays (stars) objects as input. Vector fields are depicted as arrows starting at specified locations, and with specified angles and radii.
+Add vector field layers to ggplots. Ideal for visualising wind speeds, water currents, electric/magnetic fields, etc. Accepts data.frames, simple features (sf), and spatiotemporal arrays (stars) objects as input. Vector fields are depicted as arrows starting at specified locations, and with specified angles and radii.
 }
 \seealso{
 Useful links:

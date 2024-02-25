@@ -35,7 +35,7 @@
 #'   )
 #' 
 #' ## When plotting as lon-lat, the angle correction will be zero
-#' angle_correction(d, params_mockup, ggplot2::coord_sf())
+#' angle_correction(d, params_mockup, ggplot2::coord_sf(default_crs = 4326))
 #' 
 #' ## Transform to UTM zone 31N in meters
 #' d2 <- d |> sf::st_transform(32631)
@@ -50,7 +50,8 @@
 #' 
 #' ## in UTM projection in this area (which is slightly tilted) the correction is
 #' ## larger than zero
-#' angle_correction(d2, params_mockup2, ggplot2::coord_sf(crs = 32631))
+#' angle_correction(d2, params_mockup2,
+#'                  ggplot2::coord_sf(crs = 32631, default_crs = 4326))
 #' @author Pepijn de Vries
 #' @export
 angle_correction <- function(data, panel_params, coord) {
