@@ -20,7 +20,7 @@ the angle is corrected for the aspect ratio in the plot."><meta property="og:ima
     
     <a class="navbar-brand me-2" href="../index.html">ggfields</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.5</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -129,7 +129,7 @@ why this correction is required and how to customize corrections please see
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## When plotting as lon-lat, the angle correction will be zero</span></span></span>
-<span class="r-in"><span><span class="fu">angle_correction</span><span class="op">(</span><span class="va">d</span>, <span class="va">params_mockup</span>, <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">angle_correction</span><span class="op">(</span><span class="va">d</span>, <span class="va">params_mockup</span>, <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>default_crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 11 features and 4 fields</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POINT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
@@ -161,7 +161,8 @@ why this correction is required and how to customize corrections please see
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## in UTM projection in this area (which is slightly tilted) the correction is</span></span></span>
 <span class="r-in"><span><span class="co">## larger than zero</span></span></span>
-<span class="r-in"><span><span class="fu">angle_correction</span><span class="op">(</span><span class="va">d2</span>, <span class="va">params_mockup2</span>, <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">32631</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">angle_correction</span><span class="op">(</span><span class="va">d2</span>, <span class="va">params_mockup2</span>,</span></span>
+<span class="r-in"><span>                 <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">32631</span>, default_crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 11 features and 4 fields</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POINT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
