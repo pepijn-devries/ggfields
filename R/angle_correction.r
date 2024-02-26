@@ -28,10 +28,14 @@
 #' 
 #' ## Create a mockup of ggplot params. Normally this is handled automatically by ggplot2
 #' params_mockup <-
-#'   list(
-#'     x_range = range(d$x),
-#'     y_range = range(d$y),
-#'     crs = sf::st_crs(4326)
+#'   c(
+#'     ggplot2::ggplot() + geom_fields(),
+#'     list(
+#'       x_range = range(d$x),
+#'       y_range = range(d$y),
+#'       crs = sf::st_crs(4326),
+#'       default_crs = 4326
+#'     )
 #'   )
 #' 
 #' ## When plotting as lon-lat, the angle correction will be zero
@@ -42,12 +46,15 @@
 #' 
 #' ## Again get parameter mockup values
 #' params_mockup2 <-
-#'   list(
-#'     x_range = range(sf::st_coordinates(d2)[,1]),
-#'     y_range = range(sf::st_coordinates(d2)[,1]),
-#'     crs = sf::st_crs(32631)
-#'   )
-#' 
+#'   c(
+#'     ggplot2::ggplot() + geom_fields(),
+#'       list(
+#'         x_range = range(sf::st_coordinates(d2)[,1]),
+#'         y_range = range(sf::st_coordinates(d2)[,1]),
+#'         crs = sf::st_crs(32631),
+#'         default_crs = 4326
+#'       )
+#'     )
 #' ## in UTM projection in this area (which is slightly tilted) the correction is
 #' ## larger than zero
 #' angle_correction(d2, params_mockup2,
