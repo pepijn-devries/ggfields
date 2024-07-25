@@ -32,8 +32,8 @@
 #' @export
 scale_radius_continuous <- function(..., range = c(1e-8, 1)) {
   ggplot2::continuous_scale(
-    "radius", "radius_c",
-    scales::rescale_pal(range = range),
+    "radius",
+    palette = scales::rescale_pal(range = range),
     rescaler = function(x, to = range, from = c(0, max(x, na.rm = TRUE))) {
       x <- as.numeric(x)
       if (any(stats::na.omit(x) < 0)) rlang::abort(c(
@@ -50,13 +50,13 @@ scale_radius_continuous <- function(..., range = c(1e-8, 1)) {
 #' @rdname scale
 #' @export
 scale_radius_binned <- function(..., range = c(1e-8, 1)) {
-  ggplot2::binned_scale("radius", "radius_b", scales::rescale_pal(range), ...)
+  ggplot2::binned_scale("radius", palette = scales::rescale_pal(range), ...)
 }
 
 #' @name scale_radius_discrete
 #' @rdname scale
 #' @export
 scale_radius_discrete <- function(..., range = c(1e-8, 1)) {
-  ggplot2::discrete_scale("radius", "radius_d", function(n)
+  ggplot2::discrete_scale("radius", palette = function(n)
     seq(range[[1]], range[[2]], length.out = n), ...)
 }

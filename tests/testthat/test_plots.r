@@ -1,6 +1,6 @@
 test_that(
   "Seawater velocity is visualised correctly", {
-    library(ggplot2)
+    library(ggplot2) |> suppressWarnings()
     data("seawatervelocity")
     seawater_plot <-
       ggplot() +
@@ -12,7 +12,7 @@ test_that(
 
 test_that(
   "Angle corrections work as expected", {
-    library(ggplot2)
+    library(ggplot2) |> suppressWarnings()
     north_arrows <-
       expand.grid(
         x = seq(-5, 15, length.out = 10),

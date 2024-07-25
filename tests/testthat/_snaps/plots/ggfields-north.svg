@@ -482,19 +482,15 @@
 <text x='496.80' y='568.61' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='9.79px' lengthAdjust='spacingAndGlyphs'>10</text>
 <text x='506.58' y='568.61' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='3.31px' lengthAdjust='spacingAndGlyphs'>°</text>
 <text x='509.90' y='568.61' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='5.87px' lengthAdjust='spacingAndGlyphs'>E</text>
-<rect x='300.81' y='22.78' width='155.01' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='311.77' y='28.26' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<polyline points='311.77,36.90 331.61,36.90 ' style='stroke-width: 1.07; stroke: #00FF00; stroke-linecap: butt; stroke-linejoin: miter;' />
-<polyline points='326.70,39.74 331.61,36.90 326.70,34.07 ' style='stroke-width: 1.07; stroke: #00FF00; stroke-linecap: butt; stroke-linejoin: miter;' />
-<polyline points='311.77,36.90 331.61,36.90 ' style='stroke-width: 1.07; stroke: #00FF00; stroke-linecap: butt; stroke-linejoin: miter;' />
-<polyline points='326.70,39.74 331.61,36.90 326.70,34.07 ' style='stroke-width: 1.07; stroke: #00FF00; stroke-linecap: butt; stroke-linejoin: miter;' />
-<rect x='376.70' y='28.26' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<polyline points='376.70,36.90 396.54,36.90 ' style='stroke-width: 1.07; stroke: #FF0000; stroke-linecap: butt; stroke-linejoin: miter;' />
-<polyline points='391.63,39.74 396.54,36.90 391.63,34.07 ' style='stroke-width: 1.07; stroke: #FF0000; stroke-linecap: butt; stroke-linejoin: miter;' />
-<polyline points='376.70,36.90 396.54,36.90 ' style='stroke-width: 1.07; stroke: #FF0000; stroke-linecap: butt; stroke-linejoin: miter;' />
-<polyline points='391.63,39.74 396.54,36.90 391.63,34.07 ' style='stroke-width: 1.07; stroke: #FF0000; stroke-linecap: butt; stroke-linejoin: miter;' />
-<text x='334.53' y='39.93' style='font-size: 8.80px; font-family: sans;' textLength='36.69px' lengthAdjust='spacingAndGlyphs'>corrected</text>
-<text x='399.46' y='39.93' style='font-size: 8.80px; font-family: sans;' textLength='50.88px' lengthAdjust='spacingAndGlyphs'>no correction</text>
+<rect x='303.55' y='22.78' width='149.53' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<rect x='309.03' y='28.26' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
+<polyline points='309.03,36.90 328.87,36.90 ' style='stroke-width: 1.07; stroke: #00FF00; stroke-linecap: butt; stroke-linejoin: miter;' />
+<polyline points='323.96,39.74 328.87,36.90 323.96,34.07 ' style='stroke-width: 1.07; stroke: #00FF00; stroke-linecap: butt; stroke-linejoin: miter;' />
+<rect x='373.96' y='28.26' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #EBEBEB;' />
+<polyline points='373.96,36.90 393.80,36.90 ' style='stroke-width: 1.07; stroke: #FF0000; stroke-linecap: butt; stroke-linejoin: miter;' />
+<polyline points='388.89,39.74 393.80,36.90 388.89,34.07 ' style='stroke-width: 1.07; stroke: #FF0000; stroke-linecap: butt; stroke-linejoin: miter;' />
+<text x='331.79' y='39.93' style='font-size: 8.80px; font-family: sans;' textLength='36.69px' lengthAdjust='spacingAndGlyphs'>corrected</text>
+<text x='396.72' y='39.93' style='font-size: 8.80px; font-family: sans;' textLength='50.88px' lengthAdjust='spacingAndGlyphs'>no correction</text>
 <text x='134.45' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='79.26px' lengthAdjust='spacingAndGlyphs'>ggfields north</text>
 </g>
 </svg>
