@@ -1,5 +1,7 @@
 test_that("Source code should not have things on TODO list", {
   expect_false({
+    skip_if(length(unclass(packageVersion("ggfields"))[[1]]) > 3,
+            "Skipping during development")
     files_to_check <-
       list.files(system.file(package = "ggfields"),
                  pattern = "[.]r$|NEWS|DESCRIPTION|README", recursive = TRUE, full.names = TRUE)

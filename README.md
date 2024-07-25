@@ -3,6 +3,17 @@
 
 ## Overview
 
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/pepijn-devries/ggfields/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pepijn-devries/ggfields/actions/workflows/R-CMD-check.yaml)
+![cranlogs](https://cranlogs.r-pkg.org/badges/ggfields)
+[![version](https://www.r-pkg.org/badges/version/ggfields)](https://CRAN.R-project.org/package=ggfields)
+[![cran
+checks](https://badges.cranchecks.info/worst/ggfields.svg)](https://cran.r-project.org/web/checks/check_results_ggfields.html)
+[![csquares status
+badge](https://pepijn-devries.r-universe.dev/badges/ggfields)](https://pepijn-devries.r-universe.dev/ggfields)
+<!-- badges: end -->
+
 <img src="man/figures/logo.png" align="right" alt = "logo" class = "pkgdown-hide" />
 
 Add vector field layers to your `ggplot2::ggplot()`. Although it has
@@ -36,6 +47,7 @@ The example below shows how seawater current data can be added to a map:
 
 ``` r
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 4.3.3
 library(ggfields)
 library(ggspatial) ## For annotating with Open Street Map
 ```
