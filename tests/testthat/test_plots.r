@@ -111,16 +111,3 @@ test_that(
       print(p) |> suppressMessages()
     })
   })
-
-# test_that(
-#   "Field glyphs draw without errors", {
-#     expect_no_error({
-#       on.exit({grDevices::dev.off(); closeAllConnections()})
-#       dat <- raw()
-#       con <- rawConnection(dat, "w")
-#       p <- ggplot(economics, aes(date, psavert, color = "savings rate"))
-#       p <- p + geom_line(key_glyph = draw_key_fields)
-#       grDevices::png(con)
-#       print(p) |> suppressMessages()
-#     })
-#   })
