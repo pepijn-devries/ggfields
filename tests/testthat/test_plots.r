@@ -65,16 +65,14 @@ test_that(
   "Negative radii throws error in continuous scales", {
     expect_error({
       on.exit({grDevices::dev.off(); closeAllConnections()})
-      dat <- raw()
-      con <- rawConnection(dat, "w")
+      f <- tempfile(fileext = ".pdf")
       p <- ggplot() +
         geom_stars(data = sw_sub) +
         geom_fields(data = sw_sub,
                     aes(angle = as.numeric(atan2(vo, uo)),
                         radius = -as.numeric(pythagoras(uo, vo))))
-      grDevices::png(con)
+      grDevices::pdf(f)
       print(p) |> suppressMessages()
-      close(con)
     })
   })
 
@@ -82,15 +80,14 @@ test_that(
   "Binned scales work without error", {
     expect_no_error({
       on.exit({grDevices::dev.off(); closeAllConnections()})
-      dat <- raw()
-      con <- rawConnection(dat, "w")
+      f <- tempfile(fileext = ".pdf")
       p <- ggplot() +
         geom_stars(data = sw_sub) +
         geom_fields(data = sw_sub,
                     aes(angle = as.numeric(atan2(vo, uo)),
                         radius = as.numeric(pythagoras(uo, vo)))) +
         scale_radius_binned()
-      grDevices::png(con)
+      grDevices::pdf(f)
       print(p) |> suppressMessages()
     })
   })
@@ -99,15 +96,14 @@ test_that(
   "Discrete scales work without error", {
     expect_no_error({
       on.exit({grDevices::dev.off(); closeAllConnections()})
-      dat <- raw()
-      con <- rawConnection(dat, "w")
+      f <- tempfile(fileext = ".pdf")
       p <- ggplot() +
         geom_stars(data = sw_sub) +
         annotation_fields(data = sw_sub,
                           aes(angle = as.numeric(atan2(vo, uo)),
                               radius = cut(as.numeric(pythagoras(uo, vo)), 3))) +
         scale_radius_discrete()
-      grDevices::png(con)
+      grDevices::pdf(f)
       print(p) |> suppressMessages()
     })
   })
