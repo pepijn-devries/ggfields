@@ -10,8 +10,9 @@
 [![version](https://www.r-pkg.org/badges/version/ggfields)](https://CRAN.R-project.org/package=ggfields)
 [![cran
 checks](https://badges.cranchecks.info/worst/ggfields.svg)](https://cran.r-project.org/web/checks/check_results_ggfields.html)
-[![csquares status
+[![ggfields status
 badge](https://pepijn-devries.r-universe.dev/badges/ggfields)](https://pepijn-devries.r-universe.dev/ggfields)
+[![codecov](https://codecov.io/gh/pepijn-devries/ggfields/graph/badge.svg?token=M8DRDR80RL)](https://codecov.io/gh/pepijn-devries/ggfields)
 <!-- badges: end -->
 
 <img src="man/figures/logo.png" align="right" alt = "logo" class = "pkgdown-hide" />
