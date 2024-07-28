@@ -80,7 +80,7 @@ angle_correction <- function(data, panel_params, coord) {
   if ("crs" %in% names(guides) && is.na(crs)) true_aspect <- 1 else
     true_aspect  <- coord$ratio %||% coord_aspect
   if (is.na(crs)) {
-    rlang::message_cnd("ggfields", message = "CRS is not specified, correcting for aspect ratio only.")
+    rlang::inform("CRS is not specified, correcting for aspect ratio only.")
     ref <- data.frame(angle = atan2(true_aspect*sin(data$angle), cos(data$angle))) |>
       dplyr::mutate(angle = .data$angle - data$angle,
                     angle = atan2(sin(.data$angle), cos(.data$angle)))
@@ -99,10 +99,9 @@ angle_correction <- function(data, panel_params, coord) {
     ref          <- (north_of_ref - ref) |>
       dplyr::mutate(y = .data$y*true_aspect, angle = -atan2(.data$y, .data$x) + pi/2)
   }
-  rlang::message_cnd(
-    "ggfields", message = sprintf("Angle correction between %0.2f and %0.2f radials",
-                                  min(ref$angle), max(ref$angle)))
-
+  rlang::inform(sprintf("Angle correction between %0.2f and %0.2f radials",
+                        min(ref$angle), max(ref$angle)), frequency = "regularly")
+  
   data |>
     dplyr::mutate(
       angle_correction = ref$angle

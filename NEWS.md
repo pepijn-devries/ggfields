@@ -1,7 +1,8 @@
-ggfields v0.0.6.0001
+ggfields v0.0.6.0002
 -------------
 
  * Fixed test
+ * Added tests
  * Added test coverage workflow
 
 ggfields v0.0.6
