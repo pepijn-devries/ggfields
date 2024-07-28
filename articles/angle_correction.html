@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ggfields</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.0001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.0002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,7 +99,8 @@ spherical coordinates), all arrows point upwards:</p>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html" class="external-link">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_light</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_fields.html">geom_fields</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">north_arrows</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="va">angle</span><span class="op">)</span>, radius <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/geom_fields.html">geom_fields</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">north_arrows</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="va">angle</span><span class="op">)</span>, radius <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Angle correction between 0.00 and 0.00 radials</span></span></code></pre></div>
 <p><img src="angle_correction_files/figure-html/angle_lonlat-1.svg" width="700"></p>
 <p>Now if we plot the same data in UTM (zone 31 N in meters, EPSG code
 32631), and do so without correction (red) and with correction (green),
@@ -120,7 +121,8 @@ you will see what happens:</p>
 <span>  <span class="fu"><a href="../reference/geom_fields.html">geom_fields</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">north_arrows</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="va">angle</span>, col <span class="op">=</span> <span class="st">"corrected"</span><span class="op">)</span>, radius <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>              max_radius <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="st">"cm"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_colour_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`no correction` <span class="op">=</span> <span class="st">"red"</span>, corrected <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">32631</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">32631</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Angle correction between -0.19 and 0.12 radials</span></span></code></pre></div>
 <p><img src="angle_correction_files/figure-html/angle_diff-1.svg" width="700"></p>
 <p>Remember that in reality (and in this plot) the parallels of latitude
 converge at the North Pole. If we don’t correct the angles of zero
