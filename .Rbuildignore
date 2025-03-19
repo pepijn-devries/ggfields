@@ -5,6 +5,7 @@
 ^README\.Rmd$
 ^\.github$
 ^docs$
+^gallery$
 ^pkgdown$
 ^_pkgdown\.yml$
 ^cran-comments\.md$
