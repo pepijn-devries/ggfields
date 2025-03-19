@@ -21,19 +21,19 @@ p <-
         linewidth = as.numeric(v),
         angle     = as.numeric(angle),
         colour    = as.numeric(v)),
-    max_radius    = grid::unit(0.6, "cm"),
+    max_radius    = grid::unit(0.5, "cm"),
     arrow         = grid::arrow(
       type   = "closed",
       angle  = 30,
-      length = grid::unit(0.1, "cm"))) +
+      length = grid::unit(0.05, "cm"))) +
   labs(colour     = "v[m/s]",
        linewidth  = "v[m/s]",
        radius     = "v[m/s]") +
   scale_radius_binned(breaks = seq(0, 0.3, by = 0.05)) +
-  scale_linewidth_binned(breaks = seq(0, 0.3, by = 0.05), range = c(.5, 4)) +
+  scale_linewidth_binned(breaks = seq(0, 0.3, by = 0.05), range = c(.6, 2.5)) +
   scale_colour_viridis_b(breaks = seq(0, 0.3, by = 0.05),
                          option = "magma", guide = guide_bins()) +
   theme(legend.key.size = unit(0.8, "cm"))
 
 ggsave("gallery/pepijn-devries-ggfields.png", p, width = 350, height = 300, units = "px",
-       scale = 5)
+       dpi = 100)
