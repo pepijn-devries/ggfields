@@ -8,8 +8,8 @@
 <title>Add Vector Field Layers to Ggplots • ggfields</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Add Vector Field Layers to Ggplots">
 <meta name="description" content="Add vector field layers to ggplots. Ideal for visualising wind speeds, water currents, electric/magnetic fields, etc. Accepts data.frames, simple features (sf), and spatiotemporal arrays (stars) objects as input. Vector fields are depicted as arrows starting at specified locations, and with specified angles and radii.">
 <meta property="og:description" content="Add vector field layers to ggplots. Ideal for visualising wind speeds, water currents, electric/magnetic fields, etc. Accepts data.frames, simple features (sf), and spatiotemporal arrays (stars) objects as input. Vector fields are depicted as arrows starting at specified locations, and with specified angles and radii.">
@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">ggfields</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.6.0003</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,7 +92,6 @@
 <p>The example below shows how seawater current data can be added to a map:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: package 'ggplot2' was built under R version 4.3.3</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pepijn-devries.github.io/ggfields/">ggfields</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://paleolimbot.github.io/ggspatial/" class="external-link">ggspatial</a></span><span class="op">)</span> <span class="co">## For annotating with Open Street Map</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -158,7 +157,7 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Pepijn de Vries <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7961-6646" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Pepijn de Vries <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7961-6646" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 
@@ -169,7 +168,7 @@
 <li><a href="https://CRAN.R-project.org/package=ggfields" class="external-link"><img src="https://www.r-pkg.org/badges/version/ggfields" alt="version"></a></li>
 <li><a href="https://cran.r-project.org/web/checks/check_results_ggfields.html" class="external-link"><img src="https://badges.cranchecks.info/worst/ggfields.svg" alt="cran checks"></a></li>
 <li><a href="https://pepijn-devries.r-universe.dev/ggfields" class="external-link"><img src="https://pepijn-devries.r-universe.dev/badges/ggfields" alt="ggfields status badge"></a></li>
-<li><a href="https://codecov.io/gh/pepijn-devries/ggfields" class="external-link"><img src="https://codecov.io/gh/pepijn-devries/ggfields/graph/badge.svg?token=M8DRDR80RL" alt="codecov"></a></li>
+<li><a href="https://app.codecov.io/gh/pepijn-devries/ggfields" class="external-link"><img src="https://codecov.io/gh/pepijn-devries/ggfields/graph/badge.svg?token=M8DRDR80RL" alt="codecov"></a></li>
 </ul>
 </div>
 
@@ -182,7 +181,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer>
