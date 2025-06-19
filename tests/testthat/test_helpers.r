@@ -27,7 +27,7 @@ data <- data.frame(
 
 coord <- ggplot2::coord_sf(crs = 4326, default_crs = 4326)
 params_mockup <- ggplot2::ggplot_build(
-  ggplot2::ggplot(NULL, ggplot2::aes(NA, NA)) +
+  ggplot2::ggplot(NULL, ggplot2::aes(1, 1)) +
     ggplot2::lims(x = c(1, 2), y = c(50, 51)) +
     coord
 )$layout$panel_params[[1]]
