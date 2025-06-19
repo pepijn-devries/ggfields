@@ -25,18 +25,12 @@ data <- data.frame(
 ) |>
   st_as_sf()
 
-params_mockup <-
-  c(
-    ggplot() + geom_fields(),
-    list(
-      x_range = c(1, 2),
-      y_range = c(50, 51),
-      crs = st_crs(4326),
-      default_crs = 4326
-    )
-  )
-
-coord <- coord_sf()
+coord <- ggplot2::coord_sf(crs = 4326, default_crs = 4326)
+params_mockup <- ggplot2::ggplot_build(
+  ggplot2::ggplot(NULL, ggplot2::aes(NA, NA)) +
+    ggplot2::lims(x = c(1, 2), y = c(50, 51)) +
+    coord
+)$layout$panel_params[[1]]
 
 test_that(
   "Prep fields coerces stars to sf", {
@@ -50,7 +44,7 @@ test_that(
 test_that(
   "Setup params add linejoin and lineend when missing", {
     expect_true({
-      params <- .setup_params_fields(params = list())
+      params <- ggfields:::.setup_params_fields(params = list())
       typeof(params) == "list" &&
         all(c("linejoin", "lineend") %in% names(params))
     })
@@ -86,6 +80,7 @@ test_that(
 test_that(
   "Panel draw function returns a gTree object", {
     testthat::expect_s3_class({
+      
       ggfields:::.draw_panel_fields(
         self, data, params_mockup, coord,
         FALSE, grid::unit(0.7, "cm"),

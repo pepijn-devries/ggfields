@@ -1,9 +1,10 @@
-ggfields v0.0.6.0004
+ggfields v0.0.6.0005
 -------------
 
  * Fixed test
  * Added tests
  * Added test coverage workflow and codecov badge
+ * Fixes for compatibility with latest `ggplot2` release
 
 ggfields v0.0.6
 -------------

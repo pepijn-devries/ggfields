@@ -32,48 +32,21 @@ why this correction is required and how to customize corrections please see
 \code{vignette("angle_correction")}.
 }
 \examples{
-## Create a data.frame with some xy-coordinates and all angles pointing North (0 degrees)
-d <-
-  data.frame(
-    x = seq(1, 2, 0.1),
-    y = seq(50, 51, 0.1),
-    angle = 0
-  ) |>
-  sf::st_as_sf(coords = c("x", "y"), crs = 4326, remove = FALSE)
+if (requireNamespace("ggplot2") && requireNamespace("stars")) {
+  library(ggplot2)
+  library(stars)
 
-## Create a mockup of ggplot params. Normally this is handled automatically by ggplot2
-params_mockup <-
-  c(
-    ggplot2::ggplot() + geom_fields(),
-    list(
-      x_range = range(d$x),
-      y_range = range(d$y),
-      crs = sf::st_crs(4326),
-      default_crs = 4326
-    )
-  )
-
-## When plotting as lon-lat, the angle correction will be zero
-angle_correction(d, params_mockup, ggplot2::coord_sf(default_crs = 4326))
-
-## Transform to UTM zone 31N in meters
-d2 <- d |> sf::st_transform(32631)
-
-## Again get parameter mockup values
-params_mockup2 <-
-  c(
-    ggplot2::ggplot() + geom_fields(),
-      list(
-        x_range = range(sf::st_coordinates(d2)[,1]),
-        y_range = range(sf::st_coordinates(d2)[,1]),
-        crs = sf::st_crs(32631),
-        default_crs = 4326
-      )
-    )
-## in UTM projection in this area (which is slightly tilted) the correction is
-## larger than zero
-angle_correction(d2, params_mockup2,
-                 ggplot2::coord_sf(crs = 32631, default_crs = 4326))
+  ggplot() +
+    geom_fields(
+      data    = seawatervelocity,
+      mapping = aes(radius = as.numeric(v),
+                    angle  = as.numeric(angle),
+                    col    = as.numeric(v)),
+ ## You can provide the `angle_correction()` as argument explicitly
+ ## (it is already the default). Note that the plotted region requires
+ ## hardly any correction for the angles.
+                .angle_correction = angle_correction)
+}
 }
 \author{
 Pepijn de Vries

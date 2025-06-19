@@ -18,7 +18,7 @@ scale_radius_discrete(..., range = c(1e-08, 1))
 \item{range}{Relative output range of radii. Must lie between 0 and 1.}
 }
 \value{
-An object of class \link[ggplot2:ggplot2-ggproto]{Scale}.
+An object of class \link[ggplot2:Scale]{Scale}.
 }
 \description{
 Scales to set up the visualisation of the \code{radius} aesthetic. These
