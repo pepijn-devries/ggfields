@@ -1,15 +1,10 @@
-params_mockup <-
-  c(
-    ggplot2::ggplot() + geom_fields(),
-    list(
-      x_range = c(1, 2),
-      y_range = c(50, 51),
-      crs = sf::st_crs(4326),
-      default_crs = 4326
-    )
-  )
+coord <- ggplot2::coord_sf(crs = 4326)
 
-coord <- ggplot2::coord_sf()
+params_mockup <- ggplot2::ggplot_build(
+  ggplot2::ggplot(NULL, ggplot2::aes(1, 1)) +
+    ggplot2::lims(x = c(1, 2), y = c(50, 51)) +
+    coord
+)$layout$panel_params[[1]]
 
 test_that(
   "Angle correction won't work on geometries other then point", {
@@ -19,7 +14,7 @@ test_that(
           geometry = sf::st_sfc(sf::st_polygon())
         ) |>
         sf::st_as_sf(crs = 4326)
-      
+
       angle_correction(data, params_mockup, coord)
     })
   }) |> suppressMessages()
@@ -33,7 +28,7 @@ test_that(
           geometry = sf::st_sfc(sf::st_polygon())
         ) |>
         sf::st_as_sf()
-      
+
       angle_correction(data, params_mockup, coord)
     })
   }) |> suppressMessages()
@@ -48,7 +43,7 @@ test_that(
           angle = 0
         ) |>
         sf::st_as_sf(coords = c("x", "y"), crs = 4326, remove = FALSE)
-      
+
       angle_correction(data, params_mockup, coord)
     })
   }) |> suppressMessages()
