@@ -1,4 +1,4 @@
-ggfields v0.0.6.0005
+ggfields v0.0.7
 -------------
 
  * Fixed test

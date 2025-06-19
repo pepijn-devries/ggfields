@@ -12,7 +12,7 @@
 checks](https://badges.cranchecks.info/worst/ggfields.svg)](https://cran.r-project.org/web/checks/check_results_ggfields.html)
 [![ggfields status
 badge](https://pepijn-devries.r-universe.dev/badges/ggfields)](https://pepijn-devries.r-universe.dev/ggfields)
-[![codecov](https://codecov.io/gh/pepijn-devries/ggfields/graph/badge.svg?token=M8DRDR80RL)](https://codecov.io/gh/pepijn-devries/ggfields)
+[![codecov](https://codecov.io/gh/pepijn-devries/ggfields/graph/badge.svg?token=M8DRDR80RL)](https://app.codecov.io/gh/pepijn-devries/ggfields)
 <!-- badges: end -->
 
 <img src="man/figures/logo.png" align="right" alt = "logo" class = "pkgdown-hide" />
@@ -48,7 +48,6 @@ The example below shows how seawater current data can be added to a map:
 
 ``` r
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.3.3
 library(ggfields)
 library(ggspatial) ## For annotating with Open Street Map
 ```
