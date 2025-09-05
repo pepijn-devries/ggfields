@@ -33,7 +33,7 @@ License: GPL (>= 3)
 URL: https://pepijn-devries.github.io/ggfields/, https://github.com/pepijn-devries/ggfields/
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Collate: 
     'angle_correction.r'
     'helpers.r'
